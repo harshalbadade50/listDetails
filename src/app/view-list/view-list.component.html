@@ -1,0 +1,23 @@
+<div class="my-data-sec">
+  <input type="text" class="form-control" name="searchVal" [(ngModel)]="searchVal">
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>City</th>
+        <th>Zip</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of myData | filterTable: searchVal; let i = index; " (click)="seeDetails(i)">
+        <td>{{item.name.title | titlecase}}. {{item.name.first | titlecase}} {{item.name.last | titlecase}}</td>
+        <td>{{item.gender | titlecase}}</td>
+        <td>{{item.location.city | titlecase}}</td>
+        <td>{{item.location.postcode}}</td>
+        <td>{{item.email}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
